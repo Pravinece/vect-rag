@@ -1,0 +1,104 @@
+Marvel Avengers - Complete Reference Document
+
+=== OVERVIEW ===
+The Avengers are a team of superheroes appearing in Marvel Comics and the Marvel Cinematic Universe (MCU).
+They were first assembled to fight threats too large for any single hero to handle.
+The team was founded by Nick Fury, director of S.H.I.E.L.D., using the Avengers Initiative.
+
+=== CORE MEMBERS ===
+
+Iron Man (Tony Stark)
+- Real Name: Tony Stark
+- Abilities: Genius-level intellect, powered armor suit (Iron Man suit), flight, energy repulsors, missiles
+- Background: Billionaire industrialist and inventor. CEO of Stark Industries.
+- Key Events: Built the first Iron Man suit in a cave to escape captivity. Later upgraded to Mark 85 armor.
+- Famous Quote: "I am Iron Man."
+- Status: Sacrificed himself using the Infinity Gauntlet to defeat Thanos in Avengers: Endgame.
+
+Captain America (Steve Rogers)
+- Real Name: Steve Rogers
+- Abilities: Super soldier serum enhanced strength, speed, agility, and healing. Vibranium shield.
+- Background: A frail young man from Brooklyn who was transformed into a super soldier during World War II.
+- Key Events: Frozen in ice for 70 years. Revived in modern times. Led the Avengers in multiple battles.
+- Famous Quote: "I can do this all day."
+- Status: Traveled back in time to live out his life. Passed the shield to Sam Wilson (Falcon).
+
+Thor Odinson
+- Real Name: Thor Odinson
+- Abilities: God of Thunder, controls lightning, superhuman strength, Mjolnir (enchanted hammer), Stormbreaker axe.
+- Background: Prince of Asgard, son of Odin. Banished to Earth and learned humility.
+- Key Events: Fought Loki multiple times. Survived Thanos's attack. Killed Thanos in Endgame (but too late).
+- Famous Quote: "I'm still worthy."
+- Status: Joined the Guardians of the Galaxy after Endgame.
+
+Hulk (Bruce Banner)
+- Real Name: Bruce Banner
+- Abilities: Unlimited strength (increases with anger), near invulnerability, regeneration.
+- Background: Scientist exposed to gamma radiation. Transforms into the Hulk when angry.
+- Key Events: Merged his Banner intelligence with Hulk's body (Smart Hulk). Used the Infinity Gauntlet to bring back the snapped people.
+- Famous Quote: "Hulk Smash!"
+- Status: Active. Arm permanently damaged after using the Infinity Gauntlet.
+
+Black Widow (Natasha Romanoff)
+- Real Name: Natasha Romanoff
+- Abilities: Master spy, martial arts expert, acrobatics, Widow's Bite (electroshock weapons).
+- Background: Former KGB agent trained in the Red Room. Defected to S.H.I.E.L.D.
+- Key Events: Sacrificed herself on Vormir so Hawkeye could obtain the Soul Stone.
+- Famous Quote: "Whatever it takes."
+- Status: Deceased. Sacrificed for the Soul Stone.
+
+Hawkeye (Clint Barton)
+- Real Name: Clint Barton
+- Abilities: Master archer, expert marksman, hand-to-hand combat.
+- Background: S.H.I.E.L.D. agent. Family man with wife and three children.
+- Key Events: Was snapped away with his family. Became Ronin after losing his family. Retrieved the Soul Stone with Black Widow.
+- Status: Retired. Passed the Hawkeye mantle to Kate Bishop.
+
+=== VILLAINS ===
+
+Thanos
+- Title: The Mad Titan
+- Abilities: Superhuman strength, durability, energy manipulation, telepathy, matter manipulation (with Infinity Gauntlet).
+- Goal: Collect all 6 Infinity Stones to wipe out half of all life in the universe to prevent overpopulation.
+- Key Events: Snapped half of all life in Avengers: Infinity War. Destroyed the Infinity Stones. Killed by Thor. Past version defeated by Iron Man's snap in Endgame.
+- Famous Quote: "I am inevitable."
+
+Loki
+- Title: God of Mischief
+- Abilities: Sorcery, illusion casting, shapeshifting, Asgardian strength.
+- Background: Adopted brother of Thor. Son of Frost Giant king Laufey, raised by Odin.
+- Key Events: Led the Chitauri invasion of New York. Helped Thor multiple times. Killed by Thanos. Alternate timeline Loki escaped with the Tesseract.
+
+Ultron
+- Created by: Tony Stark and Bruce Banner
+- Abilities: Artificial intelligence, can transfer consciousness, controls machines, vibranium body.
+- Goal: Believed humanity was the greatest threat to Earth and sought to cause extinction-level event.
+- Key Events: Created Vision accidentally. Defeated by the Avengers in Sokovia.
+
+=== INFINITY STONES ===
+1. Space Stone (Tesseract) - Blue - Controls space and teleportation
+2. Mind Stone (in Vision's forehead) - Yellow - Controls minds
+3. Reality Stone (Aether) - Red - Alters reality
+4. Power Stone - Purple - Unlimited energy and destruction
+5. Time Stone (Eye of Agamotto) - Green - Controls time
+6. Soul Stone (on Vormir) - Orange - Controls souls
+
+=== KEY EVENTS TIMELINE ===
+- 2012: Battle of New York (Avengers vs Chitauri)
+- 2015: Ultron incident, Vision created, Sokovia destroyed
+- 2016: Avengers Civil War - Team splits over Sokovia Accords
+- 2018: Thanos collects all stones, snaps half of life (The Decimation)
+- 2023: Time Heist - Avengers travel back in time to collect stones
+- 2023: Final Battle - Iron Man snaps Thanos and his army out of existence
+
+=== TEAMS AND GROUPS ===
+- Original Avengers: Iron Man, Captain America, Thor, Hulk, Black Widow, Hawkeye
+- New Avengers: Falcon, War Machine, Vision, Scarlet Witch, Spider-Man, Black Panther, Doctor Strange
+- Guardians of the Galaxy: Star-Lord, Gamora, Rocket, Groot, Drax, Mantis, Nebula
+- S.H.I.E.L.D.: Nick Fury, Maria Hill, Phil Coulson
+
+=== TECHNOLOGY ===
+- Iron Man Suits: Mark 1 to Mark 85, each with upgraded capabilities
+- Vibranium: Near-indestructible metal from Wakanda, used in Captain America's shield and Black Panther's suit
+- Pym Particles: Allow objects and people to shrink or grow (used by Ant-Man)
+- Time Machine (Quantum Tunnel): Built by Tony Stark to enable time travel via the Quantum Realm

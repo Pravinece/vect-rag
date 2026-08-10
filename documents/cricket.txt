@@ -1,0 +1,163 @@
+ICC Cricket World Cup - Complete Reference Document
+
+=== OVERVIEW ===
+The ICC Cricket World Cup is the international championship of One Day International (ODI) cricket.
+It is organized by the International Cricket Council (ICC) and held every four years.
+It is one of the world's most viewed sporting events, alongside the FIFA World Cup and the Olympics.
+The tournament was first held in 1975 in England.
+
+=== FORMAT ===
+- Each match is a One Day International (ODI): 50 overs per side
+- Teams qualify through ICC rankings and regional qualifiers
+- Tournament includes group stage, Super 12s/Super 8s, semi-finals, and final
+- Host nation automatically qualifies
+
+=== WORLD CUP WINNERS (ODI) ===
+
+1975 - West Indies
+- Venue: England
+- Final: West Indies beat Australia by 17 runs
+- Player of the Tournament: Clive Lloyd (West Indies)
+- Notable: First ever World Cup. Clive Lloyd scored 102 in the final.
+
+1979 - West Indies
+- Venue: England
+- Final: West Indies beat England by 92 runs
+- Notable: Viv Richards scored 138* in the final. West Indies back-to-back champions.
+
+1983 - India
+- Venue: England
+- Final: India beat West Indies by 43 runs
+- Captain: Kapil Dev
+- Notable: Biggest upset in cricket history. Kapil Dev's famous 175* vs Zimbabwe in group stage.
+- Impact: This win transformed cricket in India and made it the most popular sport in the country.
+
+1987 - Australia
+- Venue: India and Pakistan (first time outside England)
+- Final: Australia beat England by 7 runs
+- Captain: Allan Border
+- Notable: First World Cup held outside England.
+
+1992 - Pakistan
+- Venue: Australia and New Zealand
+- Final: Pakistan beat England by 22 runs
+- Captain: Imran Khan
+- Notable: Imran Khan's famous "cornered tigers" speech. Wasim Akram's brilliant bowling in the final.
+
+1996 - Sri Lanka
+- Venue: India, Pakistan, Sri Lanka
+- Final: Sri Lanka beat Australia by 7 wickets
+- Captain: Arjuna Ranatunga
+- Notable: Sanath Jayasuriya revolutionized opening batting with aggressive play. Aravinda de Silva scored 107* in the final.
+
+1999 - Australia
+- Venue: England
+- Final: Australia beat Pakistan by 8 wickets
+- Captain: Steve Waugh
+- Notable: Shane Warne and Glenn McGrath dominated. Pakistan collapsed for 132 in the final.
+
+2003 - Australia
+- Venue: South Africa
+- Final: Australia beat India by 125 runs
+- Captain: Ricky Ponting
+- Notable: Ricky Ponting scored 140* in the final. Australia's dominant era. Sachin Tendulkar was top scorer of the tournament.
+
+2007 - Australia
+- Venue: West Indies
+- Final: Australia beat Sri Lanka by 53 runs (D/L method)
+- Captain: Ricky Ponting
+- Notable: Australia won three consecutive World Cups (1999, 2003, 2007). Glenn McGrath took 26 wickets.
+
+2011 - India
+- Venue: India, Sri Lanka, Bangladesh
+- Final: India beat Sri Lanka by 6 wickets
+- Captain: MS Dhoni
+- Notable: MS Dhoni hit the winning six. Sachin Tendulkar's last World Cup. India won on home soil after 28 years.
+- Famous Moment: MS Dhoni's helicopter shot six to win the final at Wankhede Stadium, Mumbai.
+
+2015 - Australia
+- Venue: Australia and New Zealand
+- Final: Australia beat New Zealand by 7 wickets
+- Captain: Michael Clarke
+- Notable: Mitchell Starc was Player of the Tournament. New Zealand's first ever World Cup final.
+
+2019 - England
+- Venue: England and Wales
+- Final: England beat New Zealand (Super Over after tie)
+- Captain: Eoin Morgan
+- Notable: Most dramatic final in World Cup history. Match tied, Super Over tied, England won on boundary count. Ben Stokes scored 84*.
+
+2023 - Australia
+- Venue: India
+- Final: Australia beat India by 6 wickets
+- Captain: Pat Cummins
+- Notable: India were unbeaten in the tournament until the final. Travis Head scored 137 in the final. Virat Kohli was Player of the Tournament with 765 runs.
+
+=== LEGENDARY PLAYERS ===
+
+Sachin Tendulkar (India)
+- Role: Batsman
+- World Cups: 1992, 1996, 1999, 2003, 2007, 2011 (6 World Cups)
+- World Cup runs: 2278 runs (most in World Cup history)
+- Notable: Called the "God of Cricket". Won the 2011 World Cup in his last attempt.
+
+Ricky Ponting (Australia)
+- Role: Batsman / Captain
+- World Cups: Won 3 consecutive World Cups as captain (1999 as player, 2003, 2007 as captain)
+- Notable: Scored 140* in 2003 final. Most successful World Cup captain.
+
+Wasim Akram (Pakistan)
+- Role: Fast Bowler
+- Known as: Sultan of Swing
+- Notable: Took 2 crucial wickets in 1992 final. One of the greatest fast bowlers ever.
+
+Glenn McGrath (Australia)
+- Role: Fast Bowler
+- World Cup wickets: 71 (most in World Cup history)
+- Notable: Dominated three World Cups. Took 26 wickets in 2007 World Cup.
+
+MS Dhoni (India)
+- Role: Wicket-keeper Batsman / Captain
+- Notable: Led India to 2011 World Cup victory. Famous for finishing matches with big shots.
+- Famous Moment: Winning six in 2011 final.
+
+Virat Kohli (India)
+- Role: Batsman
+- Notable: 765 runs in 2023 World Cup (Player of the Tournament). Consistent performer across multiple World Cups.
+
+=== RECORDS ===
+- Most runs in World Cup history: Sachin Tendulkar - 2278 runs
+- Most wickets in World Cup history: Glenn McGrath - 71 wickets
+- Highest individual score: Martin Guptill (New Zealand) - 237* vs West Indies, 2015
+- Most World Cup titles: Australia - 6 titles (1987, 1999, 2003, 2007, 2015, 2023)
+- Highest team total: Australia - 417/6 vs Afghanistan, 2015
+- Lowest team total: Canada - 36 all out vs Sri Lanka, 2003
+
+=== T20 WORLD CUP ===
+The ICC T20 World Cup is a separate tournament for Twenty20 International cricket (20 overs per side).
+- First held in 2007 in South Africa
+- India won the inaugural T20 World Cup in 2007 under MS Dhoni
+- India won the 2024 T20 World Cup under Rohit Sharma, defeating South Africa in the final
+- West Indies won in 2012 and 2016
+- England won in 2010 and 2022
+- Pakistan won in 2009
+- Sri Lanka won in 2014
+
+=== KEY CRICKET TERMS ===
+- Over: 6 balls bowled by one bowler
+- Wicket: Dismissal of a batsman
+- Century (100): Batsman scores 100 or more runs
+- Duck: Batsman dismissed for 0 runs
+- Hat-trick: Bowler takes 3 wickets in 3 consecutive balls
+- LBW: Leg Before Wicket - ball hits batsman's leg in line with stumps
+- No-ball: Illegal delivery, batting team gets extra run
+- Wide: Ball bowled too wide for batsman to hit, extra run awarded
+- DRS: Decision Review System - technology used to review umpire decisions
+- D/L Method: Duckworth-Lewis method - calculates revised targets in rain-affected matches
+
+=== HOST NATIONS ===
+- England hosted: 1975, 1979, 1983, 1999, 2019
+- India hosted: 1987 (with Pakistan), 1996 (with Pakistan & Sri Lanka), 2011 (with Sri Lanka & Bangladesh), 2023
+- Australia hosted: 1992 (with New Zealand), 2015 (with New Zealand)
+- South Africa hosted: 2003
+- West Indies hosted: 2007
