@@ -1,5 +1,6 @@
 import os
 import json
+import threading
 import numpy as np
 import faiss
 import config
@@ -7,6 +8,7 @@ from embedder import get_embedding
 
 _index = None
 _metadata = None
+_lock = threading.Lock()
 
 
 def _load():
@@ -22,11 +24,13 @@ def _load():
         _metadata = json.load(f)
 
 
-def retrieve(query: str, top_k: int = None) -> list[dict]:
+def retrieve(query: str, top_k: int | None = None) -> list[dict]:
     if _index is None:
-        _load()
+        with _lock:
+            if _index is None:
+                _load()
 
-    k = top_k or config.TOP_K
+    k = top_k if top_k is not None else config.TOP_K
     vec = np.array([get_embedding(query)], dtype="float32")
     faiss.normalize_L2(vec)
 
@@ -34,7 +38,7 @@ def retrieve(query: str, top_k: int = None) -> list[dict]:
 
     results = []
     for score, idx in zip(scores[0], indices[0]):
-        if idx == -1:
+        if idx == -1 or idx >= len(_metadata):
             continue
         chunk = _metadata[idx].copy()
         chunk["score"] = round(float(score), 4)
@@ -45,6 +49,7 @@ def retrieve(query: str, top_k: int = None) -> list[dict]:
 
 def reload_index():
     global _index, _metadata
-    _index = None
-    _metadata = None
-    _load()
+    with _lock:
+        _index = None
+        _metadata = None
+        _load()
