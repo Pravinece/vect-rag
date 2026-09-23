@@ -1,14 +1,27 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from typing import Optional
 import config
 import retriever
 from ingest import ingest
 from llm import ask_llm
+from contextlib import asynccontextmanager
+from db import postgres
+from pydantic import BaseModel
+import heros
+from schemas.herosSchema import IngestRequest, IngestResponse, HeroSearchRequest, SearchResponse, MetadataRequest, HeroChatRequest, HeroChatResponse
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    postgres.connect()
+    yield
+    postgres.disconnect()
+
 
 app = FastAPI(
     title="Vector RAG API",
     description="RAG pipeline using FAISS + Ollama (upgradeable to OpenAI/Azure)",
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 
@@ -97,6 +110,58 @@ def chat(req: ChatRequest):
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ── Heros (PG Vector) Routes ───────────────────────────────────────────────────
+
+@app.post("/heros/ingest", response_model=IngestResponse)
+def heros_ingest(req: IngestRequest):
+    """Ingest a single file by filename into its own pgvector cluster."""
+    try:
+        result = heros.ingest_by_filename(postgres.conn, req.filename, req.description)
+        return result
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+@app.post("/heros/generate-metadata", response_model=IngestResponse)
+def heros_generate_metadata(req: MetadataRequest):
+    """Generate description for a file using LLM and update registry."""
+    try:
+        result = heros.ingest_description(postgres.conn, req.filename)
+        return result
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/heros/search", response_model=SearchResponse)
+def heros_search(req: HeroSearchRequest):
+    """Search pgvector. LLM auto-detects the correct cluster."""
+    try:
+        results = heros.search_pg(postgres.conn, req.query, req.top_k)
+        return results
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/heros/chat", response_model=HeroChatResponse)
+def heros_chat(req: HeroChatRequest):
+    """Full RAG pipeline on pgvector. LLM auto-detects cluster, retrieves context, returns answer."""
+    try:
+        result = heros.chat_pg(postgres.conn, req.question, req.top_k)
+        return result
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 
 @app.get("/status")

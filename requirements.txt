@@ -5,3 +5,5 @@ numpy
 requests
 python-dotenv
 pydantic
+psycopg2-binary
+pgvector
