@@ -1,5 +1,6 @@
 import requests
 import config
+import google.generativeai as genai
 
 
 def get_embedding(text: str) -> list[float]:
@@ -7,9 +8,18 @@ def get_embedding(text: str) -> list[float]:
         return _openai_embedding(text)
     elif config.PROVIDER == "azure":
         return _azure_embedding(text)
+    elif config.PROVIDER == "gemini":
+        return _gemini_embedding(text)
     else:
         return _ollama_embedding(text)
 
+def _gemini_embedding(text: str) -> list[float]:
+    genai.configure(api_key=config.GEMINI_API_KEY)
+    result = genai.embed_content(
+        model=f"models/{config.GEMINI_EMBEDDING_MODEL}",
+        content=text
+    )
+    return result["embedding"]
 
 def _ollama_embedding(text: str) -> list[float]:
     response = requests.post(

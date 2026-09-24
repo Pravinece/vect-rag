@@ -8,7 +8,9 @@ from contextlib import asynccontextmanager
 from db import postgres
 from pydantic import BaseModel
 import heros
+import telegram as tg
 from schemas.herosSchema import IngestRequest, IngestResponse, HeroSearchRequest, SearchResponse, MetadataRequest, HeroChatRequest, HeroChatResponse
+from schemas.telegramSchema import TelegramIngestRequest, TelegramIngestResponse
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -162,6 +164,22 @@ def heros_chat(req: HeroChatRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+
+
+# ── Telegram Routes ───────────────────────────────────────────────────────────
+
+@app.post("/telegram/ingest", response_model=TelegramIngestResponse)
+def telegram_ingest(req: TelegramIngestRequest):
+    """Download a file from Telegram using file_id and ingest it into pgvector."""
+    try:
+        result = tg.ingest_from_telegram(postgres.conn, req.file_id, req.filename, req.description)
+        return result
+    except FileNotFoundError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 @app.get("/status")

@@ -1,3 +1,4 @@
+import google.generativeai as genai
 import requests
 import config
 
@@ -16,9 +17,16 @@ Answer:"""
         return _openai_chat(prompt)
     elif config.PROVIDER == "azure":
         return _azure_chat(prompt)
+    elif config.PROVIDER == "gemini":
+        return _gemini_chat(prompt)
     else:
         return _ollama_chat(prompt)
 
+def _gemini_chat(prompt: str) -> str:
+    genai.configure(api_key=config.GEMINI_API_KEY)
+    model = genai.GenerativeModel(config.GEMINI_LLM_MODEL)
+    response = model.generate_content(prompt)
+    return response.text
 
 def _ollama_chat(prompt: str) -> str:
     response = requests.post(
