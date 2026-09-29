@@ -16,6 +16,14 @@ GEMINI_API_KEY=os.getenv("GEMINI_API_KEY")
 GEMINI_EMBEDDING_MODEL=os.getenv("GEMINI_EMBEDDING_MODEL", "models/gemini-embedding-001")
 GEMINI_LLM_MODEL=os.getenv("GEMINI_LLM_MODEL", "models/gemini-3.8-flash")
 
+# Groq
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+GROQ_LLM_MODEL = os.getenv("GROQ_LLM_MODEL", "llama-3.3-70b-versatile")
+
+# OpenRouter
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_LLM_MODEL = os.getenv("OPENROUTER_LLM_MODEL", "mistralai/mistral-7b-instruct")
+
 # OpenAI (future)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_EMBEDDING_MODEL = os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small")

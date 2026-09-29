@@ -18,6 +18,10 @@ Answer:"""
         return _azure_chat(prompt)
     elif config.PROVIDER == "gemini":
         return _gemini_chat(prompt)
+    elif config.PROVIDER == "groq":
+        return _groq_chat(prompt)
+    elif config.PROVIDER == "openrouter":
+        return _openrouter_chat(prompt)
     else:
         return _ollama_chat(prompt)
 
@@ -33,6 +37,27 @@ def _gemini_chat(prompt: str) -> str:
         contents=prompt
     )
     return response.text
+
+def _groq_chat(prompt: str) -> str:
+    from groq import Groq
+    client = Groq(api_key=config.GROQ_API_KEY)
+    response = client.chat.completions.create(
+        model=config.GROQ_LLM_MODEL,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return response.choices[0].message.content
+
+def _openrouter_chat(prompt: str) -> str:
+    from openai import OpenAI
+    client = OpenAI(
+        api_key=config.OPENROUTER_API_KEY,
+        base_url="https://openrouter.ai/api/v1",
+    )
+    response = client.chat.completions.create(
+        model=config.OPENROUTER_LLM_MODEL,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return response.choices[0].message.content
 
 def _ollama_chat(prompt: str) -> str:
     response = requests.post(

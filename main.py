@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from typing import Optional
 import config
 import retriever
@@ -24,6 +25,13 @@ app = FastAPI(
     description="RAG pipeline using FAISS + Ollama (upgradeable to OpenAI/Azure)",
     version="1.0.0",
     lifespan=lifespan,
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
