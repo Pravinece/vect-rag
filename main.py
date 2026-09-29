@@ -10,7 +10,7 @@ from pydantic import BaseModel
 import heros
 import telegram as tg
 from schemas.herosSchema import IngestRequest, IngestResponse, HeroSearchRequest, SearchResponse, MetadataRequest, HeroChatRequest, HeroChatResponse
-from schemas.telegramSchema import TelegramIngestRequest, TelegramIngestResponse
+from schemas.telegramSchema import TelegramIngestRequest, TelegramIngestResponse, TelegramDocumentItem, TelegramBotDocument
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -167,6 +167,15 @@ def heros_chat(req: HeroChatRequest):
 
 
 # ── Telegram Routes ───────────────────────────────────────────────────────────
+
+@app.get("/telegram/documents", response_model=list[TelegramBotDocument])
+def telegram_documents():
+    """Fetch documents sent to the Telegram bot (from getUpdates)."""
+    try:
+        return tg.get_documents_from_updates()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 @app.post("/telegram/ingest", response_model=TelegramIngestResponse)
 def telegram_ingest(req: TelegramIngestRequest):

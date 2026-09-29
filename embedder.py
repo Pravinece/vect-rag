@@ -1,6 +1,5 @@
 import requests
 import config
-import google.generativeai as genai
 
 
 def get_embedding(text: str) -> list[float]:
@@ -14,22 +13,42 @@ def get_embedding(text: str) -> list[float]:
         return _ollama_embedding(text)
 
 def _gemini_embedding(text: str) -> list[float]:
-    genai.configure(api_key=config.GEMINI_API_KEY)
-    result = genai.embed_content(
-        model=f"models/{config.GEMINI_EMBEDDING_MODEL}",
-        content=text
+    from google import genai
+    from google.genai import types
+    client = genai.Client(
+        api_key=config.GEMINI_API_KEY,
+        http_options=types.HttpOptions(api_version="v1")
     )
-    return result["embedding"]
+    result = client.models.embed_content(
+        model=config.GEMINI_EMBEDDING_MODEL,
+        contents=text,
+        config=types.EmbedContentConfig(output_dimensionality=768)
+    )
+    return result.embeddings[0].values
+
+# def _ollama_embedding(text: str) -> list[float]:
+#     response = requests.post(
+#         f"{config.EMBEDDING_URL}/api/embeddings",
+#         json={"model": config.EMBEDDING_MODEL, "prompt": text},
+#         timeout=300,
+#     )
+#     response.raise_for_status()
+#     return response.json()["embedding"]
+
+import requests
 
 def _ollama_embedding(text: str) -> list[float]:
     response = requests.post(
-        f"{config.EMBEDDING_URL}/api/embeddings",
-        json={"model": config.EMBEDDING_MODEL, "prompt": text},
+        f"{config.EMBEDDING_URL}/api/embed",
+        json={
+            "model": config.EMBEDDING_MODEL,
+            "input": text,
+            "dimensions": 768
+        },
         timeout=300,
     )
     response.raise_for_status()
-    return response.json()["embedding"]
-
+    return response.json()["embeddings"][0]
 
 def _openai_embedding(text: str) -> list[float]:
     # pip install openai  (when switching to openai)

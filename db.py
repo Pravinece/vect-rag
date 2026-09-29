@@ -1,7 +1,5 @@
-from config import DB_URL
+import config 
 import psycopg2
-
-EMBEDDING_DIM = 1024
 
 def _init_db(conn):
     with conn.cursor() as cur:
@@ -27,7 +25,7 @@ def create_source_table(conn, table_name: str):
                 id        SERIAL PRIMARY KEY,
                 chunk_id  INTEGER NOT NULL,
                 content   TEXT NOT NULL,
-                embedding vector({EMBEDDING_DIM}),
+                embedding vector({config.EMBEDDING_DIM}),
                 UNIQUE (chunk_id)
             )
         """)
@@ -77,7 +75,8 @@ class Postgres:
         self.conn = None
 
     def connect(self):
-        self.conn = psycopg2.connect(DB_URL)
+        print("Connecting to Postgres...",config.PROVIDER, config.EMBEDDING_DIM)
+        self.conn = psycopg2.connect(config.DB_URL)
         print("Connected to Postgres")
         _init_db(self.conn)
 

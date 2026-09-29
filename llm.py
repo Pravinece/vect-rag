@@ -1,4 +1,3 @@
-import google.generativeai as genai
 import requests
 import config
 
@@ -23,9 +22,16 @@ Answer:"""
         return _ollama_chat(prompt)
 
 def _gemini_chat(prompt: str) -> str:
-    genai.configure(api_key=config.GEMINI_API_KEY)
-    model = genai.GenerativeModel(config.GEMINI_LLM_MODEL)
-    response = model.generate_content(prompt)
+    from google import genai
+    from google.genai import types
+    client = genai.Client(
+        api_key=config.GEMINI_API_KEY,
+        http_options=types.HttpOptions(api_version="v1")
+    )
+    response = client.models.generate_content(
+        model=config.GEMINI_LLM_MODEL,
+        contents=prompt
+    )
     return response.text
 
 def _ollama_chat(prompt: str) -> str:
