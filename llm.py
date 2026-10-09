@@ -3,14 +3,17 @@ import config
 
 
 def ask_llm(question: str, context: str) -> str:
-    prompt = f"""You are a helpful assistant. Use only the context below to answer the question.
-If the answer is not in the context, say "I don't have information about that."
+    if context:
+        prompt = f"""You are a helpful assistant. Use the context below to answer the question as thoroughly as possible.
+If some details are in the context, use them. Do not say you lack information if the context contains relevant content.
 
 Context:
 {context}
 
 Question: {question}
 Answer:"""
+    else:
+        prompt = question
 
     if config.LLM_PROVIDER == "openai":
         return _openai_chat(prompt)
