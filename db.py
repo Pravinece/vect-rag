@@ -46,6 +46,15 @@ def get_all_registry(conn):
         return []
     return [{"id": r[0], "filename": r[1], "table_name": r[2], "description": r[3], "chunk_count": r[4], "created_at": r[5], "updated_at": r[6]} for r in rows]
 
+def drop_table(conn, filename: str):
+    registry = get_registry(conn, filename)
+    if not registry:
+        raise ValueError(f"'{filename}' not found in registry")
+    with conn.cursor() as cur:
+        cur.execute(f"DROP TABLE IF EXISTS {registry['table_name']}")
+        cur.execute("DELETE FROM source_registry WHERE filename = %s", (filename,))
+    conn.commit()
+
 def get_registry(conn, filename: str):
     with conn.cursor() as cur:
         cur.execute("SELECT id, filename, table_name, description, chunk_count, created_at, updated_at FROM source_registry WHERE filename = %s", (filename,))
@@ -75,7 +84,7 @@ class Postgres:
         self.conn = None
 
     def connect(self):
-        print("Connecting to Postgres...",config.PROVIDER, config.EMBEDDING_DIM)
+        print("Connecting to Postgres...",config.LLM_PROVIDER, config.EMBEDDING_PROVIDER, config.EMBEDDING_DIM)
         self.conn = psycopg2.connect(config.DB_URL)
         print("Connected to Postgres")
         _init_db(self.conn)

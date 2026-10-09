@@ -12,15 +12,15 @@ Context:
 Question: {question}
 Answer:"""
 
-    if config.PROVIDER == "openai":
+    if config.LLM_PROVIDER == "openai":
         return _openai_chat(prompt)
-    elif config.PROVIDER == "azure":
+    elif config.LLM_PROVIDER == "azure":
         return _azure_chat(prompt)
-    elif config.PROVIDER == "gemini":
+    elif config.LLM_PROVIDER == "gemini":
         return _gemini_chat(prompt)
-    elif config.PROVIDER == "groq":
+    elif config.LLM_PROVIDER == "groq":
         return _groq_chat(prompt)
-    elif config.PROVIDER == "openrouter":
+    elif config.LLM_PROVIDER == "openrouter":
         return _openrouter_chat(prompt)
     else:
         return _ollama_chat(prompt)
@@ -56,6 +56,7 @@ def _openrouter_chat(prompt: str) -> str:
     response = client.chat.completions.create(
         model=config.OPENROUTER_LLM_MODEL,
         messages=[{"role": "user", "content": prompt}],
+        max_tokens=config.OPENROUTER_MAX_TOKENS,
     )
     return response.choices[0].message.content
 

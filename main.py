@@ -6,11 +6,11 @@ import retriever
 from ingest import ingest
 from llm import ask_llm
 from contextlib import asynccontextmanager
-from db import postgres
+from db import postgres, drop_table
 from pydantic import BaseModel
 import heros
 import telegram as tg
-from schemas.herosSchema import IngestRequest, IngestResponse, HeroSearchRequest, SearchResponse, MetadataRequest, HeroChatRequest, HeroChatResponse
+from schemas.herosSchema import IngestRequest, IngestResponse, HeroSearchRequest, SearchResponse, MetadataRequest, HeroChatRequest, HeroChatResponse, SourceRegistry
 from schemas.telegramSchema import TelegramIngestRequest, TelegramIngestResponse, TelegramDocumentItem, TelegramBotDocument
 
 @asynccontextmanager
@@ -57,7 +57,8 @@ class SearchRequest(BaseModel):
 def root():
     return {
         "status": "running",
-        "provider": config.PROVIDER,
+        "llm_provider": config.LLM_PROVIDER,
+        "embedding_provider": config.EMBEDDING_PROVIDER,
         "embedding_model": config.EMBEDDING_MODEL,
         "llm_model": config.LLM_MODEL,
     }
@@ -123,6 +124,27 @@ def chat(req: ChatRequest):
 
 
 # ── Heros (PG Vector) Routes ───────────────────────────────────────────────────
+
+@app.get("/heros/tables", response_model=list[SourceRegistry])
+def heros_tables():
+    """List all ingested tables from the registry."""
+    try:
+        from db import get_all_registry
+        return get_all_registry(postgres.conn)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.delete("/heros/tables/{filename}")
+def heros_drop_table(filename: str):
+    """Drop a table and remove it from the registry by filename."""
+    try:
+        drop_table(postgres.conn, filename)
+        return {"message": f"'{filename}' dropped successfully"}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 @app.post("/heros/ingest", response_model=IngestResponse)
 def heros_ingest(req: IngestRequest):
@@ -208,4 +230,4 @@ def status():
         return {"index_ready": False, "total_chunks": 0}
     with open(meta_file) as f:
         meta = json.load(f)
-    return {"index_ready": True, "total_chunks": len(meta), "provider": config.PROVIDER}
+    return {"index_ready": True, "total_chunks": len(meta), "llm_provider": config.LLM_PROVIDER, "embedding_provider": config.EMBEDDING_PROVIDER}

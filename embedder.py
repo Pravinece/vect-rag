@@ -3,11 +3,11 @@ import config
 
 
 def get_embedding(text: str) -> list[float]:
-    if config.PROVIDER == "openai":
+    if config.EMBEDDING_PROVIDER == "openai":
         return _openai_embedding(text)
-    elif config.PROVIDER == "azure":
+    elif config.EMBEDDING_PROVIDER == "azure":
         return _azure_embedding(text)
-    elif config.PROVIDER == "gemini":
+    elif config.EMBEDDING_PROVIDER == "gemini":
         return _gemini_embedding(text)
     else:
         return _ollama_embedding(text)
@@ -24,6 +24,8 @@ def _gemini_embedding(text: str) -> list[float]:
         contents=text,
         config=types.EmbedContentConfig(output_dimensionality=768)
     )
+    if not result.embeddings or not result.embeddings[0].values:
+        raise ValueError("Gemini embedding model returned empty response")
     return result.embeddings[0].values
 
 # def _ollama_embedding(text: str) -> list[float]:
@@ -48,7 +50,10 @@ def _ollama_embedding(text: str) -> list[float]:
         timeout=300,
     )
     response.raise_for_status()
-    return response.json()["embeddings"][0]
+    embeddings = response.json().get("embeddings")
+    if not embeddings or not embeddings[0]:
+        raise ValueError("Ollama embedding model returned empty response")
+    return embeddings[0]
 
 def _openai_embedding(text: str) -> list[float]:
     # pip install openai  (when switching to openai)

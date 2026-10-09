@@ -3,7 +3,8 @@ import os
 
 load_dotenv()
 
-PROVIDER = os.getenv("PROVIDER")
+LLM_PROVIDER = os.getenv("LLM_PROVIDER", os.getenv("PROVIDER"))
+EMBEDDING_PROVIDER = os.getenv("EMBEDDING_PROVIDER", os.getenv("PROVIDER"))
 
 # Ollama (current)
 EMBEDDING_URL = os.getenv("EMBEDDING_URL", "http://172.23.198.77:11434")
@@ -23,6 +24,7 @@ GROQ_LLM_MODEL = os.getenv("GROQ_LLM_MODEL", "llama-3.3-70b-versatile")
 # OpenRouter
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_LLM_MODEL = os.getenv("OPENROUTER_LLM_MODEL", "mistralai/mistral-7b-instruct")
+OPENROUTER_MAX_TOKENS = int(os.getenv("OPENROUTER_MAX_TOKENS", "1024"))
 
 # OpenAI (future)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
